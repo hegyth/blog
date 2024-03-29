@@ -1,0 +1,42 @@
+.marks {
+  display: flex;
+  gap: 20px;
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  img {
+    cursor: pointer;
+  }
+}
+
+.navigate {
+  width: 1140px;
+  display: flex;
+  justify-content: space-between;
+  span {
+    text-decoration: none;
+    font-size: 24px;
+  }
+}
+
+.main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1140px;
+  gap: 48px;
+}
+
+.mainPage {
+  padding: 64px;
+  display: flex;
+  justify-content: center;
+}
+
+.postBody {
+  width: 848px;
+}

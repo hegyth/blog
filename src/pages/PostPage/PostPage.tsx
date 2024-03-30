@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useAppSelector } from "../../store";
+import { useAppSelector } from "../../redux/store";
 import { PostType } from "../../types";
-import Reaction from "../../ui/ReactionBlock/Reaction";
+import Reaction from "../../ui/Reaction/Reaction";
 import css from "./imdex.module.scss";
 
 export default function PostPage() {
@@ -19,12 +19,12 @@ export default function PostPage() {
       }
     });
   }, [id, post, posts]);
-  
+
   return (
     <div className={css.mainPage}>
       <div className={css.main}>
         <div className={css.navigate}>
-          <Link style={{textDecoration: 'none', color: 'black'}} to="/">
+          <Link style={{ textDecoration: "none", color: "black" }} to="/">
             <span>← Вернуться к статьям</span>
           </Link>
           {post && <Reaction post={post} />}

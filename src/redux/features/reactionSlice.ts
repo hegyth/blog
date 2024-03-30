@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ReactionType } from "../types";
-
-interface ReactionState {
-  value: ReactionType[];
-}
+import { ReactionState } from "../../types";
 
 const initialState: ReactionState = {
   value: [],

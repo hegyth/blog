@@ -11,3 +11,11 @@ export interface ReactionType {
   id: number;
   reaction: string;
 }
+
+export interface ReactionState {
+  value: ReactionType[];
+}
+
+export interface PostState {
+  value: PostType[];
+}

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { PostType } from "../../types";
-import Reaction from "../ReactionBlock/Reaction";
+import Reaction from "../Reaction/Reaction";
 import css from "./index.module.scss";
 
 type PropsType = {

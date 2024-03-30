@@ -1,10 +1,8 @@
-import dislike from "../../assets/ThumbDownAlt.png";
-import dislikeRed from "../../assets/ThumbDownAltRed.png";
-import like from "../../assets/ThumbUpAlt.png";
-import likeGreen from "../../assets/ThumbUpAltGreen.png";
-import { setReaction } from "../../features/reactionSlice";
-import { useAppDispatch, useAppSelector } from "../../store";
+import { setReaction } from "../../redux/features/reactionSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { PostType, ReactionType } from "../../types";
+import Dislike from "../ReactionIcons/Dislike";
+import Like from "../ReactionIcons/Like";
 import css from "./index.module.scss";
 
 type PropsType = {
@@ -30,11 +28,11 @@ export default function Reaction({ post }: PropsType) {
       {reactions.find((el) => el.id == post?.id && el.reaction == "like") ? (
         <>
           <div className={css.mark}>
-            <img src={likeGreen} alt="like" onClick={setLike} />
+            <Like color={"green"} onClick={setLike} />
             <span>{post?.like + 1}</span>
           </div>
-          <div className={css.mark}>
-            <img src={dislike} alt="dislike" onClick={setDislike} />
+          <div className={css.mark} >
+            <Dislike color={"grey"} onClick={setDislike}/>
             <span>{post?.dislike}</span>
           </div>
         </>
@@ -43,22 +41,22 @@ export default function Reaction({ post }: PropsType) {
         ) ? (
         <>
           <div className={css.mark}>
-            <img src={like} alt="like" onClick={setLike} />
+            <Like color={"grey"} onClick={setLike} />
             <span>{post?.like}</span>
           </div>
           <div className={css.mark}>
-            <img src={dislikeRed} alt="dislike" onClick={setDislike} />
+            <Dislike color={"red"} onClick={setDislike}/>
             <span>{post?.dislike + 1}</span>
           </div>
         </>
       ) : (
         <>
           <div className={css.mark}>
-            <img src={like} alt="like" onClick={setLike} />
+            <Like color={"grey"} onClick={setLike} />
             <span>{post?.like}</span>
           </div>
           <div className={css.mark}>
-            <img src={dislike} alt="dislike" onClick={setDislike} />
+            <Dislike color={"grey"} onClick={setDislike}/>
             <span>{post?.dislike}</span>
           </div>
         </>

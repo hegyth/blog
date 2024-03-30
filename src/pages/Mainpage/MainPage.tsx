@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { setPosts } from "../../features/postSlice";
-import { useAppDispatch, useAppSelector } from "../../store";
+import serchIcon from "../../assets/SearchIcon.png";
+import { setPosts } from "../../redux/features/postSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import "../../scss/index.scss";
+import "../../scss/reset.scss";
 import { PostType } from "../../types";
 import Post from "../../ui/Post/Post";
 import css from "./index.module.scss";
-import serchIcon from "../../assets/Shape.png";
 
 export default function MainPage() {
   const apiUrl = "https://jsonplaceholder.typicode.com/posts";
@@ -16,12 +18,12 @@ export default function MainPage() {
   useEffect(() => {
     if (!posts[0]) {
       axios.get(apiUrl).then((resp) => {
-        const allPosts = resp.data;
-        allPosts.forEach((el: PostType) => {
+        const newPosts = resp.data;
+        newPosts.forEach((el: PostType) => {
           el.dislike = Math.floor(Math.random() * 50);
           el.like = Math.floor(Math.random() * 50);
         });
-        dispatch(setPosts(allPosts));
+        dispatch(setPosts(newPosts));
       });
     }
   }, [dispatch, posts]);
@@ -36,7 +38,7 @@ export default function MainPage() {
         </p>
         <div style={{ position: "relative" }}>
           <input
-            style={{ paddingLeft: "44px", width: '1080px', height: '20px' }}
+            style={{ paddingLeft: "44px", width: "1080px", height: "20px" }}
             type="text"
             placeholder="Поиск по названию статьи"
           />

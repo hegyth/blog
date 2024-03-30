@@ -1,14 +1,14 @@
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App.tsx";
+import MainPage from "./pages/Mainpage/MainPage.tsx";
 import PostPage from "./pages/PostPage/PostPage.tsx";
-import { store } from "./store.ts";
+import { store } from "./redux/store.ts";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <MainPage />,
   },
   {
     path: "/:id",

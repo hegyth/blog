@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable prefer-rest-params */
+
 import { useState } from "react";
 import serchIcon from "../../assets/SearchIcon.png";
 import { setSearchPost } from "../../redux/features/searchSlice";
@@ -15,14 +15,13 @@ export default function Search() {
     null
   );
 
-  const debounce = (fn: (e: React.ChangeEvent<HTMLInputElement>) => void) => {
+  const debounce = <Args extends any[], F extends (...args: Args) => any>(
+    fn: F
+  ) => {
     let timer: ReturnType<typeof setTimeout>;
-    return function (this: any) {
-      const fnCall = () => {
-        fn.apply(this, arguments as unknown as Parameters<typeof fn>);
-      };
+    return function (...inner: Parameters<F>) {
       clearTimeout(timer);
-      timer = setTimeout(fnCall, 500);
+      timer = setTimeout(() => fn(...inner), 500);
     };
   };
 

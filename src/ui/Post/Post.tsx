@@ -5,18 +5,19 @@ import css from "./index.module.scss";
 
 type PropsType = {
   post: PostType;
+  searchPost: boolean;
 };
 
-export default function Post({ post }: PropsType) {
+export default function Post({ post, searchPost }: PropsType) {
   return (
     <div key={post?.id} className={css.post}>
-      {post?.id == 1 ? (
+      {post?.id == 1 || searchPost ? (
         <img src="https://placehold.co/1140x600" alt="error" />
       ) : (
         <img src="https://placehold.co/558x273" alt="error" />
       )}
       <div className={css.desc}>
-        {post?.id == 1 ? (
+        {post?.id == 1 || searchPost ? (
           <>
             <div className={css.title}>
               <h2>{post?.title}</h2>

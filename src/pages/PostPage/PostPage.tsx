@@ -25,7 +25,7 @@ export default function PostPage() {
       <div className={css.main}>
         <div className={css.navigate}>
           <Link style={{ textDecoration: "none", color: "black" }} to="/">
-            <span>← Вернуться к статьям</span>
+            <h2>← Вернуться к статьям</h2>
           </Link>
           {post && <Reaction post={post} />}
         </div>

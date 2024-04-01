@@ -19,3 +19,7 @@ export interface ReactionState {
 export interface PostState {
   value: PostType[];
 }
+
+export interface SearchPostState {
+  value: PostType | null;
+}

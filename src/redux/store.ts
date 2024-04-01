@@ -2,9 +2,11 @@ import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import postSlice from "./features/postSlice";
 import reactionSlice from "./features/reactionSlice";
+import searchSlice from "./features/searchSlice";
 
 export const store = configureStore({
   reducer: {
+    search: searchSlice,
     post: postSlice,
     reaction: reactionSlice,
   },

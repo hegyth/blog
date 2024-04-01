@@ -1,0 +1,18 @@
+.search {
+  position: relative;
+  input {
+    padding-left: 44px;
+    width: 1080px;
+    height: 20px;
+  }
+  img {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+  }
+}
+
+.errorMessage {
+  text-align: center;
+  color: red;
+}
